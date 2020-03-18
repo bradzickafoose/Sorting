@@ -31,11 +31,24 @@ def merge(arrA, arrB):
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort(arr):
-    # TO-DO
+    # TO-DO – split here
+
+    # base case: if array length less than 1
+    if len(arr) > 1:
+
+        # find the middle of arr
+        # sort items in left and put items to the left in left array
+        left = merge_sort(arr[0: len(arr) // 2])
+        # sort items in the right and put items to the right in right array
+        right = merge_sort(arr[len(arr) // 2:])
+
+        # merge left array and right array
+        arr = merge(left, right)
 
     return arr
 
 
+print(merge_sort([8, 3, 100, 43, 28, 1, 1000, 12, 24]))
 # STRETCH: implement an in-place merge sort algorithm
 
 
